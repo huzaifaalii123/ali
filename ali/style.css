@@ -1,0 +1,156 @@
+/* p7.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.heading {
+    font-size: 3rem;
+    color: #ff6f61;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(45deg, #ff6f61, #d83367);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textGlow 3s infinite alternate;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    padding: 15px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background-color: #fafafa;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    color: #333;
+    outline: none;
+    resize: none;
+    transition: border 0.4s ease, box-shadow 0.4s ease;
+    animation: focusInExpand 0.5s forwards ease;
+}
+
+textarea:focus {
+    border: 2px solid #ff6f61;
+    box-shadow: 0 12px 25px rgba(255, 111, 97, 0.5);
+}
+
+button {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #ff6f61, #d83367);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 111, 97, 0.3);
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    background-position: right;
+    box-shadow: 0 15px 40px rgba(255, 111, 97, 0.5);
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: left 0.5s ease;
+}
+
+button:hover:before {
+    left: 50%;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* Animations */
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 5px #ff6f61, 0 0 10px #ff6f61, 0 0 15px #d83367;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff6f61, 0 0 25px #d83367, 0 0 30px #ff6f61;
+    }
+}
+
+@keyframes focusInExpand {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-2deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    textarea, button {
+        max-width: 100%;
+    }
+}
